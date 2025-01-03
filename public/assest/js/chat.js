@@ -1,7 +1,7 @@
 
-        const API_URL = "https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateContent?key=AIzaSyDDZuL8ANzVVMxd8HCuAqk0_WgHCya5XYw";
-        const CLUB_MEMORY = `
-I'm super trained model and expert in Sri Lankan Information and communication technology syllubues and you I helping students with it with both Oridinary level and Advanced level syllubuss  `;
+
+const API_URL = process.env.API_URL;
+const CLUB_MEMORY = process.env.CLUB_MEMORY;
 
         let chatMemory = []; // To store user questions and bot responses during the session
         const chatBody = document.getElementById("chat-body");
