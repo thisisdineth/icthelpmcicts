@@ -3,24 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ICT Helper Chat</title>
     <link rel="stylesheet" href="./assest/css/chat.css">
-    <script defer src="./assest/js/chat.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Chat Interface</title>
 </head>
 <body>
-    <div class="chat-container">
-        <header class="chat-header">
-            <h1>ICT Helper - MCICTS</h1>
-        </header>
-        <main id="chat-body" class="chat-body"></main>
-        <footer class="chat-footer">
-            <div class="input-container">
-                <input type="text" id="user-input" placeholder="Ask me anything about ICT..." autocomplete="off" required>
-                <button id="send-button">
-                    <i class="fa fa-paper-plane"></i>
-                </button>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <a href="./index.html"><i class="fas fa-home"></i></a>
+            <i class="fas fa-book"></i>
+            <i class="fas fa-sticky-note"></i>
+        </div>
+
+        <!-- Chat Container -->
+        <div class="chat-container">
+            <div id="chat-body" class="chat-body"></div>
+            <div class="chat-footer">
+                <input id="user-input" type="text" placeholder="Type your message...">
+                <button id="send-button"><i class="fas fa-paper-plane"></i></button>
+                <button id="image-upload"><i class="fas fa-image"></i></button>
             </div>
-        </footer>
+        </div>
     </div>
+    <script src="./assest/js/chat.js"></script>
 </body>
 </html>

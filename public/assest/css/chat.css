@@ -1,53 +1,78 @@
 /* General Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
-}
-
 body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(45deg, #cba911, #e9cb06, #7e7e7e, #000000);
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background: linear-gradient(45deg, #141E30, #243B55);
-    color: #fff;
 }
 
-.chat-container {
+/* App Container */
+.app-container {
+    display: flex;
+    width: 100%;
+    height: 100%; /* Full height */
+    max-width: 100%; /* Ensure it stretches to the device width */
+    flex-direction: row;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 60px;
+    background-color: rgba(2, 1, 0, 0.8); /* Gold glass effect */
+
     display: flex;
     flex-direction: column;
-    width: 100%;
-    max-width: 600px;
-    height: 90vh;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    align-items: center;
+    padding: 20px 0;
+    gap: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease; /* Smooth transition for hiding */
+}
+
+/* Sidebar Icons */
+.sidebar i {
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.sidebar i:hover {
+    color: #f5c518;
+}
+
+/* Chat Container */
+.chat-container {
+    flex: 1;
+    background-color: rgba(0, 0, 0, 0.7); /* Black glass effect */
+
+    display: flex;
+    flex-direction: column;
     overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(10px);
 }
 
 /* Chat Header */
 .chat-header {
-    padding: 20px;
+    background-color: rgba(203, 169, 17, 0.9); /* Gold glass effect */
+    padding: 15px;
     text-align: center;
-    background: rgba(0, 0, 0, 0.8);
-    color: #FFD700;
-    font-size: 1.5em;
+    color: white;
     font-weight: bold;
+    font-size: 1.2em;
 }
 
 /* Chat Body */
 .chat-body {
     flex: 1;
+    padding: 15px;
     overflow-y: auto;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
     scrollbar-width: thin;
-    scrollbar-color: #FFD700 #000;
+    scrollbar-color: #cba911 transparent;
 }
 
 .chat-body::-webkit-scrollbar {
@@ -55,18 +80,13 @@ body {
 }
 
 .chat-body::-webkit-scrollbar-thumb {
-    background: #FFD700;
-    border-radius: 5px;
+    background-color: #cba911;
+    border-radius: 10px;
 }
 
-.chat-body::-webkit-scrollbar-track {
-    background: #000;
-}
-
-/* Chat Messages */
 .message {
     display: flex;
-    gap: 10px;
+    margin: 10px 0;
     align-items: flex-start;
 }
 
@@ -78,75 +98,94 @@ body {
     justify-content: flex-start;
 }
 
-.avatar {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: #FFD700;
-    border: 2px solid #fff;
-}
-
 .text {
     max-width: 70%;
     padding: 10px;
     border-radius: 10px;
-    background: rgba(0, 0, 0, 0.7);
-    color: #fff;
-    font-size: 1em;
-    word-wrap: break-word;
+    background-color: rgba(255, 255, 255, 0.1); /* Transparent silverish background */
+    color: white;
+    font-size: 14px;
+    line-height: 1.5;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
 }
 
 .message.user .text {
-    background: rgba(255, 215, 0, 0.8);
-    color: #000;
+    background-color: rgba(203, 169, 17, 0.8); /* Gold for user messages */
+    color: white;
+}
+
+.avatar {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    border-radius: 50%;
 }
 
 /* Chat Footer */
 .chat-footer {
-    padding: 10px;
-    background: rgba(0, 0, 0, 0.8);
-    display: flex;
-    justify-content: center;
-}
-
-.input-container {
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.6); /* Glass effect */
     display: flex;
     align-items: center;
-    width: 100%;
-    max-width: 500px;
+    justify-content: space-between;
+    gap: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 #user-input {
     flex: 1;
-    padding: 10px 15px;
-    font-size: 1em;
+    padding: 10px;
     border: none;
-    border-radius: 25px;
-    outline: none;
-    background: rgba(255, 255, 255, 0.1);
-    color: #fff;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: rgba(255, 255, 255, 0.1); /* Transparent input background */
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-#user-input::placeholder {
-    color: rgba(255, 255, 255, 0.7);
+#user-input:focus {
+    outline: 2px solid #cba911;
 }
 
-#send-button {
-    margin-left: 10px;
-    padding: 10px 15px;
-    font-size: 1.2em;
-    color: #fff;
-    background: #FFD700;
+#send-button, #image-upload {
+    padding: 10px;
     border: none;
-    border-radius: 50%;
+    border-radius: 5px;
+    background-color: rgba(203, 169, 17, 0.8); /* Gold buttons */
+    color: white;
+    font-size: 14px;
     cursor: pointer;
-    transition: transform 0.2s ease;
 }
 
-#send-button:hover {
-    transform: scale(1.1);
+#send-button:hover, #image-upload:hover {
+    background-color: rgba(203, 169, 17, 1);
 }
 
-#send-button:active {
-    transform: scale(0.9);
+/* Mobile View (Responsive Design) */
+@media (max-width: 768px) {
+    .app-container {
+        flex-direction: column; /* Stack the sidebar and chat vertically */
+    }
+
+    .sidebar {
+        display: none; /* Hide sidebar on smaller screens */
+    }
+
+    .chat-container {
+        border-radius: 15px; /* Adjust border-radius for mobile */
+    }
+
+    .chat-body {
+        padding: 10px; /* Reduce padding on smaller devices */
+    }
+
+    #user-input {
+        font-size: 12px; /* Adjust font size for smaller screens */
+    }
+
+    #send-button, #image-upload {
+        padding: 8px; /* Adjust button size for mobile */
+        font-size: 12px;
+    }
 }
