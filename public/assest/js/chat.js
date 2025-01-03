@@ -1,7 +1,7 @@
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
+const CLUB_MEMORY = process.env.NEXT_PUBLIC_CLUB_MEMORY;
 
-const API_URL = process.env.API_URL;
-const CLUB_MEMORY = process.env.CLUB_MEMORY;
 
         let chatMemory = []; // To store user questions and bot responses during the session
         const chatBody = document.getElementById("chat-body");
