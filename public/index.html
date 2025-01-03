@@ -6,27 +6,37 @@
     <title>ICT Helper - MCICTS</title>
     <link rel="stylesheet" href="./assest/css/style.css">
     <script defer src="./assest/js/script.js"></script>
+    <!-- Font Awesome CDN -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
 </head>
 <body>
     <div class="background-animation"></div>
     <header>
         <nav>
             <div class="logo">
+                <img src="./assest/img/logo.png" alt="MCICTS Logo">
                 <h1>ICT Helper MCICTS</h1>
             </div>
-
         </nav>
     </header>
 
     <section class="hero">
         <div class="hero-content">
             <h2 class="hero-heading">MCICTS ICT Helper</h2>
-            <p class="hero-subheading">Don't worry I help you with ICT related problems and Subject.</p>
-            <a href="#features" class="cta-button">Start Chat</a>
+            <p class="hero-subheading">Don't worry I help you with ICT-related problems and subjects.</p>
+            <!-- Chat Input -->
+            <form id="chat-form" action="chat.html" method="get" class="chat-interface">
+                <input type="text" name="query" id="chat-input" placeholder="Type your question..." required>
+                <button type="submit" id="send-button">
+                    <i class="fa fa-paper-plane"></i>
+                </button>
+            </form>
         </div>
     </section>
+
     <footer>
-        <p>&copy; 2025 icthelp.mcicts.lk ; project by MCICTS</p>
+        <p>&copy; 2025 icthelp.mcicts.lk; project by MCICTS</p>
     </footer>
 </body>
 </html>
