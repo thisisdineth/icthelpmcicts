@@ -28,14 +28,35 @@
             <p class="hero-subheading">Don't worry I help you with ICT-related problems and subjects.</p>
             <!-- Chat Input -->
             <form id="chat-form" action="chat.html" method="get" class="chat-interface">
-                <input type="text" name="query" id="chat-input" placeholder="Type your question..." required>
+                <input type="text" name="query" id="chat-input" placeholder="What you wanna learn?" required>
                 <button type="submit" id="send-button">
                     <i class="fa fa-paper-plane"></i>
                 </button>
             </form>
         </div>
     </section>
-
+    <script>
+        // Array of placeholder messages
+        const placeholders = [
+            "Diffrent between RAM and ROM?",
+            "Convert A52 to binary",
+            "What is an operating system?",
+            "Explain about IP address",
+            "PHP is hard for me"
+        ];
+    
+        let index = 0; // Start with the first message
+    
+        // Function to update placeholder
+        function updatePlaceholder() {
+            const inputField = document.getElementById('chat-input');
+            inputField.placeholder = placeholders[index];
+            index = (index + 1) % placeholders.length; // Loop through messages
+        }
+    
+        // Change placeholder every 5 seconds
+        setInterval(updatePlaceholder, 5000);
+    </script>
     <footer>
         <p>&copy; 2025 icthelp.mcicts.lk; project by MCICTS</p>
     </footer>
