@@ -17,6 +17,29 @@ body {
     max-width: 100%; /* Ensure it stretches to the device width */
     flex-direction: row;
 }
+/* Style for the copy button */
+.copy-button {
+    background-color: #547c975f; /* Blue background */
+    color: white; /* White text */
+    font-size: 12px; /* Slightly smaller text */
+    border: none; /* No border */
+    padding: 5px 10px; /* Padding inside the button */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor to indicate it's clickable */
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
+    margin-left: 10px; /* Space between the button and the content */
+}
+
+/* Style for the copy button on hover */
+.copy-button:hover {
+    background-color: #1abc9c; /* Green background on hover */
+}
+
+/* Style for the copy button when disabled */
+.copy-button:disabled {
+    background-color: #7f8c8d; /* Grey background when disabled */
+    cursor: not-allowed; /* Indicates the button is not clickable */
+}
 
 /* Sidebar */
 .sidebar {
