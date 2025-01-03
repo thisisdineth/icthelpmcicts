@@ -1,6 +1,6 @@
+const API_URL = "https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateContent?key=AIzaSyDDZuL8ANzVVMxd8HCuAqk0_WgHCya5XYw";
+const CLUB_MEMORY = "I'm super trained model and expert in Sri Lankan Information and communication technology syllabuses...";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL;
-const CLUB_MEMORY = process.env.NEXT_PUBLIC_CLUB_MEMORY;
 
 
         let chatMemory = []; // To store user questions and bot responses during the session
