@@ -12,6 +12,17 @@ body {
     overflow-x: hidden;
     position: relative;
 }
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between image and text */
+}
+
+.logo img {
+    width: 50px; /* Adjust size of the logo image */
+    height: 50px; /* Make it proportional to the width */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow */
+}
 /* Chat Interface */
 .chat-interface {
     display: flex;
