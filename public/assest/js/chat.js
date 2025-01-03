@@ -15,7 +15,9 @@ const createCopyButton = (text) => {
     button.textContent = "Copy response";
     button.classList.add("copy-button");
     button.onclick = () => {
-        navigator.clipboard.writeText(text)
+        // Strip the HTML tags from the response to copy only the plain text
+        const textToCopy = text.replace(/<\/?[^>]+(>|$)/g, ""); // Remove HTML tags
+        navigator.clipboard.writeText(textToCopy)
             .then(() => alert("Response copied to clipboard!"))
             .catch((err) => console.error("Failed to copy text: ", err));
     };
