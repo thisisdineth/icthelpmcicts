@@ -190,7 +190,7 @@ const addMessage = (content, sender, isHTML = false) => {
 
     const avatar = document.createElement("img");
     avatar.classList.add("avatar");
-    avatar.src = sender === "user" ? "../public/img/user.png" : "../public/img/club.png";
+    avatar.src = sender === "user" ? "../public/assest/img/club.png" : "../public/assest/img/club.png";
 
     const text = document.createElement("div");
     text.classList.add("text");
