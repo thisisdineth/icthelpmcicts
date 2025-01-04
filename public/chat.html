@@ -16,15 +16,17 @@
             <i class="fas fa-sticky-note"></i>
         </div>
 
-        <!-- Chat Container -->
-        <div class="chat-container">
-            <div id="chat-body" class="chat-body"></div>
-            <div class="chat-footer">
-                <input id="user-input" type="text" placeholder="Type your message...">
-                <button id="send-button"><i class="fas fa-paper-plane"></i></button>
-                <button id="image-upload"><i class="fas fa-image"></i></button>
-            </div>
-        </div>
+<!-- Chat Container -->
+<div class="chat-container">
+    <div id="chat-body" class="chat-body"></div>
+    <div class="chat-footer">
+        <input id="user-input" type="text" placeholder="Type your message...">
+        <button id="send-button"><i class="fas fa-paper-plane"></i></button>
+        <!-- Update: Added file input for image upload -->
+        <button id="image-upload-button"><i class="fas fa-image"></i></button>
+        <input id="image-upload-input" type="file" accept="image/*" style="display: none;">
+    </div>
+</div>
     </div>
     
     <script src="./assest/js/chat.js"></script>
