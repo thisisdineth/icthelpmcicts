@@ -31,7 +31,7 @@ const addMessage = (content, sender, isHTML = false) => {
 
     const avatar = document.createElement("img");
     avatar.classList.add("avatar");
-    avatar.src = sender === "user" ? "../public/assest/img/user.png" : "../public/assest/img/club.png";
+    avatar.src = sender === "user" ? "./img/user.png" : "./img/club.png";
 
     const text = document.createElement("div");
     text.classList.add("text");
