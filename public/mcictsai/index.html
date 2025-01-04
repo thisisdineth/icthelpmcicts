@@ -3,55 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Analysis with Gemini API</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="style.css">
+    <title>Gemini AI Image & PDF Analyzer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f9;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        .file-input {
+            border: 2px dashed #ccc;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            cursor: pointer;
+            background: #fafafa;
+        }
+        .file-input:hover {
+            border-color: #007bff;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background: #007bff;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .output {
+            margin-top: 20px;
+            padding: 10px;
+            background: #e9ecef;
+            border-radius: 5px;
+            overflow-wrap: break-word;
+        }
+    </style>
 </head>
 <body>
-    <header class="header">
-        <h1>Image Analysis Tool by Bharadwaj</h1>
-        <img src="https://i.postimg.cc/hP0HLRnx/Manu1-23.jpg" alt="Bharadwaj" class="profile-image">
-    </header>
-    <main class="container">
-        <div class="row">
-            <form id="uploadForm" class="col s12">
-                <div class="file-field input-field">
-                    <div class="btn">
-                        <span>Upload Image</span>
-                        <input type="file" id="imageInput" accept="image/*">
-                    </div>
-                    <div class="file-path-wrapper">
-                        <input class="file-path validate" type="text" placeholder="Upload an image to analyze">
-                    </div>
-                </div>
-                <button class="btn waves-effect waves-light" type="submit" id="analyzeBtn" disabled>Analyze</button>
-            </form>
-        </div>
-        <div class="row">
-            <div id="imagePreview" class="col s12 center-align">
-                <!-- Image preview will be displayed here -->
-            </div>
-        </div>
-        <div class="row">
-            <div id="progressBar" class="col s12">
-                <div class="progress">
-                    <div class="indeterminate"></div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div id="result" class="col s12">
-                <!-- The analysis result will be displayed here -->
-            </div>
-        </div>
-    </main>
-    <footer class="page-footer">
-        <div class="footer-content center-align">
-            <span>Image Analysis Tool by <a href="https://youtube.com/@code-with-Bharadwaj" target="_blank">Bharadwaj</a></span>
-        </div>
-    </footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script type="module" src="index.js"></script>
+    <div class="container">
+        <h1>Gemini AI Image & PDF Analyzer</h1>
+        <form id="analyzeForm">
+            <label class="file-input">
+                <input type="file" id="fileInput" accept="image/*,.pdf" hidden>
+                Click to upload an image or PDF
+            </label>
+            <button type="submit">Analyze</button>
+        </form>
+        <div id="output" class="output"></div>
+    </div>
+    <script>
+        const form = document.getElementById('analyzeForm');
+        const fileInput = document.getElementById('fileInput');
+        const output = document.getElementById('output');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const file = fileInput.files[0];
+            if (!file) {
+                output.textContent = 'Please upload a file to analyze.';
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('file', file);
+
+            output.textContent = 'Analyzing...';
+
+            try {
+                const response = await fetch('https://api.gemini-ai.com/analyze', {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Authorization': 'Bearer AIzaSyDDZuL8ANzVVMxd8HCuAqk0_WgHCya5XYw'
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error(`Error: ${response.statusText}`);
+                }
+
+                const data = await response.json();
+                output.textContent = JSON.stringify(data, null, 2);
+            } catch (error) {
+                output.textContent = `Error: ${error.message}`;
+            }
+        });
+
+        document.querySelector('.file-input').addEventListener('click', () => {
+            fileInput.click();
+        });
+    </script>
 </body>
 </html>
