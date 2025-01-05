@@ -1,17 +1,16 @@
 let API_URL, CLUB_MEMORY;
 
-// Fetch environment variables from the server
 const fetchConfig = async () => {
     try {
         const response = await fetch('/api-config');
         const data = await response.json();
+        console.log("Fetched Data:", data); // Check the output here
         API_URL = data.API_URL;
         CLUB_MEMORY = data.CLUB_MEMORY;
     } catch (error) {
         console.error("Failed to fetch environment variables: ", error);
     }
 };
-
 // Initialize chat after configuration is loaded
 window.addEventListener("load", () => {
     fetchConfig().then(() => {
