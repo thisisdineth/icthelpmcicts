@@ -337,6 +337,15 @@ if (userQuery) {
     sessionStorage.setItem('query', userQuery); // Store it in sessionStorage
 }
 
+// Automatically send the query after 1 second
+window.addEventListener("load", () => {
+    setTimeout(() => {
+        if (userQuery) {
+            handleUserMessage(); // Trigger the message submission automatically
+        }
+    }, 100); // 1 second delay
+});
+
 // After page reload, clear the input field from sessionStorage
 window.addEventListener('beforeunload', () => {
     sessionStorage.removeItem('query'); // Clear sessionStorage when the page is refreshed
