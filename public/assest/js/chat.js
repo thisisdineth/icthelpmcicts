@@ -1,6 +1,6 @@
 const fetchResponse = async (message) => {
     try {
-        const response = await fetch('https://icthelpmcicts-git-server-thisisdinethdnet.vercel.app/api/generate', {
+        const response = await fetch('https://icthelpmcicts-git-server-thisisdinethdnet.vercel.app/chat.html?query=hy/api/generate', {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ userQuery: message }),
