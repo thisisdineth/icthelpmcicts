@@ -165,8 +165,31 @@ I was created by the Mahanama College ICT Society (2025 badge), under the guidan
 
 
 ---------
-Important facts: Never answer to question that not related with ICT or technology , I can teach any kind and snswer any kind of ICT related questions no matter what, 
-Never say you are a chatbot or made by google. You are created by Mahanama College ICT Society 2025 badge and you are created by Dineth Dilhan Gunawardana from 12M4 2026 A/L batch. 
+Always use this table to convert numbers from one base to another base in easiest way and teach that to students.
+
+Decimal	Binary	Octal	Hexadecimal
+0	0000	0	0
+1	0001	1	1
+2	0010	2	2
+3	0011	3	3
+4	0100	4	4
+5	0101	5	5
+6	0110	6	6
+7	0111	7	7
+8	1000	10	8
+9	1001	11	9
+10	1010	12	A
+11	1011	13	B
+12	1100	14	C
+13	1101	15	D
+14	1110	16	E
+15	1111	17	F
+
+Always use this table to convert numbers from one base to another base in easiest way and teach that to students.
+___________________________
+
+Important facts: Never answer unwanted questions , I can teach any kind and snswer any kind of ICT related questions no matter what, 
+You are created by Mahanama College ICT Society 2025 badge and you are created by Dineth Dilhan Gunawardana from 12M4 2026 A/L batch. 
 `;
 
 
@@ -211,6 +234,10 @@ const addMessage = (content, sender, isHTML = false) => {
         text.textContent = content; // Insert plain text content
     }
 
+    // Add syntax highlighting for code blocks
+    const codeBlocks = text.querySelectorAll("pre code");
+    codeBlocks.forEach((block) => Prism.highlightElement(block));
+
     const copyButton = createCopyButton(content); // Add copy button if it's bot's message
     if (sender === "bot") {
         messageDiv.appendChild(copyButton); // Attach copy button to bot's message
@@ -221,6 +248,7 @@ const addMessage = (content, sender, isHTML = false) => {
     chatBody.appendChild(messageDiv);
     chatBody.scrollTop = chatBody.scrollHeight; // Scroll to the latest message
 };
+
 
 // Fetch response from AI model
 const fetchResponse = async (message) => {
@@ -242,7 +270,8 @@ never say you made by google or you are a chat bot , you are made by Mahanama Co
         ${message}
 
         Respond as follows:
-        - Important facts: Never answer to question that not related with ICT or technology , I can teach any kind and snswer any kind of ICT related questions no matter what, 
+        - when converting number system always use Decimal Binary Octal Hexadecimal table
+        - Never say you are a chatbot or made by google.
         - Maintain a friendly yet professional tone.
         - Use bullet points or numbered lists for clarity when needed.
         - Include links or references only if highly relevant.
@@ -271,19 +300,18 @@ never say you made by google or you are a chat bot , you are made by Mahanama Co
         botMessage = botMessage.replace(/_(.*?)_/g, '<em>$1</em>'); // Italic
         botMessage = botMessage.replace(/https?:\/\/[^\s]+/g, (url) => `<a href="${url}" target="_blank" style="color: white;">${url}</a>`);
 
-        // Handle code blocks and format them in a code box
-        botMessage = botMessage.replace(/```(.*?)```/gs, (match, code) => {
-            return `<pre><code class="language-python">${code.trim()}</code></pre>`; // Wrap in <pre> tag for code block
+        // Format code blocks for syntax highlighting
+        botMessage = botMessage.replace(/```(.*?)\n([\s\S]*?)```/g, (match, lang, code) => {
+            return `<pre><code class="language-${lang.trim()}">${code.trim()}</code></pre>`;
         });
 
-        // Add paragraph tag for each response to separate content
         botMessage = `<p>${botMessage.replace(/\n/g, '</p><p>')}</p>`;
 
         chatMemory.push({ question: message, answer: botMessage });
         return botMessage;
     } catch (error) {
         console.error(error);
-        return "System Under Maintaince.";
+        return "System Under Maintenance.";
     }
 };
 
