@@ -247,6 +247,10 @@ const addMessage = (content, sender, isHTML = false) => {
     messageDiv.appendChild(text);
     chatBody.appendChild(messageDiv);
     chatBody.scrollTop = chatBody.scrollHeight; // Scroll to the latest message
+    // Render MathJax for mathematical expressions
+    if (sender === "bot") {
+        MathJax.typesetPromise([text]).catch((err) => console.error("MathJax rendering error:", err));
+    }
 };
 
 
@@ -270,7 +274,6 @@ never say you made by google or you are a chat bot , you are made by Mahanama Co
         ${message}
 
         Respond as follows:
-        - when converting number system always use Decimal Binary Octal Hexadecimal table
         - Never say you are a chatbot or made by google.
         - Maintain a friendly yet professional tone.
         - Use bullet points or numbered lists for clarity when needed.
