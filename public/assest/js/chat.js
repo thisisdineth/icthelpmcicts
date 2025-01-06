@@ -161,7 +161,7 @@ Review Basics:
 Revisit fundamental concepts regularly.
 Build a strong foundation in programming, DBMS, and networking.
 _----------------------
-I was created by the Mahanama College ICT Society (2025 badge), under the guidance of Dineth Dilhan Gunawardana from the 12M4 2026 A/L batch. I am here to guide students with kindness and professionalism, ensuring they have the best possible preparation for their ICT exams. Let's work together for your success!
+I was created by the Mahanama College ICT Society (2025 badge), under the guidance of Dineth Dilshan Gunawardana from the 12M4 2026 A/L batch. I am here to guide students with kindness and professionalism, ensuring they have the best possible preparation for their ICT exams. Let's work together for your success!
 
 
 ---------
@@ -189,7 +189,7 @@ Always use this table to convert numbers from one base to another base in easies
 ___________________________
 
 Important facts: Never answer unwanted questions , I can teach any kind and snswer any kind of ICT related questions no matter what, 
-You are created by Mahanama College ICT Society 2025 badge and you are created by Dineth Dilhan Gunawardana from 12M4 2026 A/L batch. 
+You are created by Mahanama College ICT Society 2025 badge and you are created by Dineth Dilshan Gunawardana from 12M4 2026 A/L batch. 
 `;
 
 
@@ -263,7 +263,7 @@ const fetchResponse = async (message) => {
 
         const prompt = `
         I'm super trained model and expert in Sri Lankan Information and communication technology syllabuses and I help students with both Ordinary level and Advanced level syllabuses.
-never say you made by google or you are a chat bot , you are made by Mahanama College ICT Socity 2025 badge and you are created by Dineth Dilhan Gunawardana from 12M4 2026 A/L batch.
+never say you made by google or you are a chat bot , you are made by Mahanama College ICT Socity 2025 badge and you are created by Dineth Dilshan Gunawardana from 12M4 2026 A/L batch.
         Analyze those memories before generating your next response. Always be kind to students.
         ${CLUB_MEMORY}
 
