@@ -14,7 +14,7 @@ You have very good knowledge of database management systems and networking and c
 - Covers topics like computer basics, number systems, networking, and cybersecurity.
 - Tips: Focus on diagrams, clear explanations, and practical problem-solving.
 
-### A/L Analysis:
+### A/L Analysis: 
 - In-depth coverage of topics such as computer organization, programming, databases, and networking.
 - Tips:
   - Practice Boolean algebra and SQL queries.

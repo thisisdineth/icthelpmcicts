@@ -201,7 +201,7 @@ const chatBody = document.getElementById("chat-body");
 const userInput = document.getElementById("user-input");
 const sendButton = document.getElementById("send-button");
 
-// Function to create a copy button
+
 const createCopyButton = (text) => {
     const button = document.createElement("button");
     button.textContent = "Copy response";
@@ -216,7 +216,7 @@ const createCopyButton = (text) => {
     return button;
 };
 
-// Function to add messages to the chat
+
 const addMessage = (content, sender, isHTML = false) => {
     const messageDiv = document.createElement("div");
     messageDiv.classList.add("message", sender);
@@ -234,19 +234,19 @@ const addMessage = (content, sender, isHTML = false) => {
         text.textContent = content; // Insert plain text content
     }
 
-    // Add syntax highlighting for code blocks
+    // Add syntax highlighting in codes
     const codeBlocks = text.querySelectorAll("pre code");
     codeBlocks.forEach((block) => Prism.highlightElement(block));
 
-    const copyButton = createCopyButton(content); // Add copy button if it's bot's message
+    const copyButton = createCopyButton(content); 
     if (sender === "bot") {
-        messageDiv.appendChild(copyButton); // Attach copy button to bot's message
+        messageDiv.appendChild(copyButton); 
     }
 
     messageDiv.appendChild(avatar);
     messageDiv.appendChild(text);
     chatBody.appendChild(messageDiv);
-    chatBody.scrollTop = chatBody.scrollHeight; // Scroll to the latest message
+    chatBody.scrollTop = chatBody.scrollHeight; 
     // Render MathJax for mathematical expressions
     if (sender === "bot") {
         MathJax.typesetPromise([text]).catch((err) => console.error("MathJax rendering error:", err));
@@ -254,7 +254,7 @@ const addMessage = (content, sender, isHTML = false) => {
 };
 
 
-// Fetch response from AI model
+
 const fetchResponse = async (message) => {
     try {
         const memoryText = chatMemory.map(
@@ -358,22 +358,22 @@ userInput.addEventListener("keypress", (e) => {
     if (e.key === "Enter") handleUserMessage();
 });
 
-// Automatically handle the initial query from index.html (using the URL parameter)
+
 const urlParams = new URLSearchParams(window.location.search);
 const userQuery = urlParams.get('query');
 
-// If a query exists in the URL, populate the input field with it
+
 if (userQuery) {
-    userInput.value = userQuery; // Set the input value with the query from URL
-    sessionStorage.setItem('query', userQuery); // Store it in sessionStorage
+    userInput.value = userQuery; 
+    sessionStorage.setItem('query', userQuery);
 }
-// Automatically send the query after 1 second
+
 window.addEventListener("load", () => {
     setTimeout(() => {
         if (userQuery) {
-            handleUserMessage(); // Trigger the message submission automatically
+            handleUserMessage(); 
         }
-    }, 100); // 1 second delay
+    }, 100); 
 });
 // After page reload, clear the input field from sessionStorage
 window.addEventListener('beforeunload', () => {
